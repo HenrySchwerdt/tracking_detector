@@ -1,4 +1,5 @@
-<img src="./public/icons/icon128.png" height="60" width="60" >
+<img src="./public/icons/icon128.png" height="60" width="60" style="text-align: center" >
+
 # Tracking Detector
 
 Tracking Detector is a proof of concept for real time web tracker detection. The extension has an underlying DNN model which can identify tracking from non-tracking web requests.
