@@ -8,7 +8,7 @@ const RequestBlocker = (() => {
             const values = result.dataSync();
             const arr = Array.from(values);
 
-            return {predict: arr[0], blocked: arr[0] > 0.8}
+            return {predict: arr[0], blocked: arr[0] > StatsListener.getRate()}
         }
     }
 })();

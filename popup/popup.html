@@ -25,10 +25,10 @@
     <div class="size">
       <div class="header padding">
         <div id="headerRow" class="d-flex flex-row center">
-            <img width="40px" height="40px" id="favicon" alt=""/>
-            <div id="currentUrl" class="mui--text-headline"></div>
+          <img width="40px" height="40px" id="favicon" alt="" />
+          <div id="currentUrl" class="mui--text-headline"></div>
         </div>
-        
+
         <div class="mui--text-subhead mt-1">Blocked Trackers</div>
 
         <div class="d-flex flex-row-reverse center">
@@ -37,32 +37,36 @@
       </div>
       <div class="mui-divider"></div>
       <div class="padding">
-        <div class="d-flex flex-row center">
+        <div>
           <div class="mui--text-subhead mt-1">Blocking is active</div>
-          <div>
+          <div class="d-flex flex-row-reverse">
             <label class="switch">
-              <input type="checkbox" />
-              <span class="slider"></span>
+              <input id="checkBox" type="checkbox" />
+              <span class="slider round"></span>
             </label>
           </div>
         </div>
-        <div class="d-flex flex-row center">
-            <div class="mui--text-subhead mt-1">Blocking is sensitivity</div>
-            <div>
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider"></span>
-              </label>
-            </div>
+        <div>
+          <div class="mui--text-subhead mt-1">Blocking is sensitivity</div>
+          <div class="range mt-1">
+            <input
+              id="rangeSlider"
+              type="range"
+              min="0"
+              max="100"
+              value="80"
+              oninput="rangeValue.innerText = this.value"
+            />
+            <p id="rangeValue" class="mui--text-title ml-1">100</p>
           </div>
+        </div>
       </div>
-      <div class="mui-divider">
-      </div>
+      <div class="mui-divider"></div>
     </div>
-    <button type="button" class="collapsible mui--text-subhead">Browse Requests</button>
-    <div id="requests" class="content">
-      
-    </div>
+    <button type="button" class="collapsible mui--text-subhead">
+      Browse Requests
+    </button>
+    <div id="requests" class="content"></div>
     <script src="./js/script.js"></script>
   </body>
 </html>

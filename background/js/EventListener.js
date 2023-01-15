@@ -44,7 +44,7 @@ const EventListener = (() => {
            ...result
           });  
           EventListener.pushToQueue(details.requestId);
-          return {cancel: result.blocked}
+          return {cancel: result.blocked && StatsListener.isActive()}
         },
         urlFilter,
         ["requestHeaders", "extraHeaders", "blocking"]

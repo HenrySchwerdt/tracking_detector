@@ -42,8 +42,19 @@ setInterval(() => {
   });
 }, 200);
 
+let settingsState = {
+  active: true,
+  rate: 0.8
+}
 
-
+chrome.storage.local.get(['settings'], (data) => {
+  if (data == undefined) {
+    document.getElementById('checkBox').checked = true
+  } else {
+    settingsState = data.settings
+    document.getElementById('checkBox').checked = settingsState.active
+  }
+})
 
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -59,3 +70,14 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+document.getElementById('checkBox').addEventListener('click', () => {
+  settingsState.active = !settingsState.active;
+  chrome.storage.local.set({settings: {active: settingsState.active, rate: settingsState.rate}});
+})
+
+
+document.getElementById('rangeSlider').addEventListener('change', (el, ev) => {
+  console.log(el)
+  console.log(ev)
+})

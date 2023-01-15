@@ -47,73 +47,66 @@
     justify-content: space-between;
 }
 
-.switch input
-{
-  display: none;
-}
-
-.switch 
-{
-  display: inline-block;
-  width: 60px; /*=w*/
-  height: 30px; /*=h*/
-  margin: 4px;
-  transform: translateY(50%);
+.switch {
   position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-.slider
-{
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
   position: absolute;
+  cursor: pointer;
   top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
-  border-radius: 30px;
-  box-shadow: 0 0 0 2px #777, 0 0 4px #777;
-  cursor: pointer;
-  border: 4px solid transparent;
-  overflow: hidden;
-  transition: 0.2s;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
-.slider:before
-{
+.slider:before {
   position: absolute;
   content: "";
-  width: 100%;
-  height: 100%;
-  background-color: #777;
-  border-radius: 30px;
-  transform: translateX(-30px); /*translateX(-(w-h))*/
-  transition: 0.2s;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
-input:checked + .slider:before
-{
-  transform: translateX(30px); /*translateX(w-h)*/
-  background-color: limeGreen;
+input:checked + .slider {
+  background-color: #29a868;
 }
 
-input:checked + .slider
-{
-  box-shadow: 0 0 0 2px limeGreen, 0 0 8px limeGreen;
+input:focus + .slider {
+  box-shadow: 0 0 1px #21f367;
 }
 
-.switch200 .slider:before
-{
-  width: 200%;
-  transform: translateX(-82px); /*translateX(-(w-h))*/
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }
 
-.switch200 input:checked + .slider:before
-{
-  background-color: red;
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
 }
 
-.switch200 input:checked + .slider
-{
-  box-shadow: 0 0 0 2px red, 0 0 8px red;
+.slider.round:before {
+  border-radius: 50%;
 }
 
 /* Style the button that is used to open and close the collapsible content */
@@ -141,3 +134,40 @@ input:checked + .slider
   overflow: hidden;
   background-color: #f1f1f1;
 }
+
+.range {
+
+  width: 100%;
+  height: 20px;
+
+  
+  background: #fcfcfc;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  }
+  .range p {
+
+  color: #000000;
+  }
+  .range input[type="range"] {
+  -webkit-appearance:none !important;
+  width: 420px;
+  height: 2px;
+  background: #29a868;
+  border: none;
+  outline: none;
+  }
+  .range input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  width: 15px;
+  height:15px;
+  background: #29a868;
+  border: 1px solid #29a868;
+  border-radius: 50%;
+  cursor: pointer;
+  }
+  .range input[type="range"]::-webkit-slider-thumb:hover {
+  background: #1bd679;
+  border: 1px solid #1bd679;
+  }
