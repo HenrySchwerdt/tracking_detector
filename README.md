@@ -1,6 +1,6 @@
-<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; width: 100%">
+<p align="center">
     <img src="./public/icons/icon128.png" height="128" width="128">
-</div>
+</p>
 
 
 
