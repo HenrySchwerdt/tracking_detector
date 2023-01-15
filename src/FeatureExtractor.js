@@ -1,3 +1,4 @@
+import * as tf from '@tensorflow/tfjs';
 const FeatureExtractor = (() => {
     const methods = [
         "GET",
@@ -57,3 +58,7 @@ const FeatureExtractor = (() => {
         }
     }
 })();
+
+export {
+    FeatureExtractor
+}

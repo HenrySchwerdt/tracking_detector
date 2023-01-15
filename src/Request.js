@@ -1,3 +1,6 @@
+import { ActiveTabListener } from "./ActiveTabListener";
+
+
 const Requests = (() => {
     let requests = [];
   
@@ -7,7 +10,10 @@ const Requests = (() => {
 
     setInterval(() => {
       const currentTab = ActiveTabListener.getCurrentTab();
-      removeOldTabIds(currentTab.id);
+      if (currentTab != null) {
+        removeOldTabIds(currentTab.id);
+      }
+      
       chrome.storage.local.set({requests});
     }, 200)
 
@@ -24,3 +30,6 @@ const Requests = (() => {
       },
     };
   })();
+export {
+  Requests
+}

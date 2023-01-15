@@ -13,3 +13,7 @@ const ActiveTabListener = (() => {
         }
     }
 })();
+
+export {
+    ActiveTabListener
+}

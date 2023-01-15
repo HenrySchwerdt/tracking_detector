@@ -1,3 +1,6 @@
+import { Model } from "./Model";
+import { FeatureExtractor } from "./FeatureExtractor";
+import { StatsListener } from "./StatsListener";
 const RequestBlocker = (async () => {
     
     let model = await Model;
@@ -14,3 +17,7 @@ const RequestBlocker = (async () => {
         }
     }
 })();
+
+export {
+    RequestBlocker
+}
