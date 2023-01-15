@@ -1,9 +1,10 @@
+<img src="./public/icons/icon128.png" height="60" width="60" >
 # Tracking Detector
 
 Tracking Detector is a proof of concept for real time web tracker detection. The extension has an underlying DNN model which can identify tracking from non-tracking web requests.
 
 ## Model
-The model expects a feature vector of dimension (1, 204) and returns a single number between 0 and 1. One being a tracker and 0 being a non-tracker.
+The model is a tensorflowjs sequential dnna and expects a feature vector of dimension (1, 204) and returns a single number between 0 and 1. One being a tracker and 0 being a non-tracker.
 
 ### Feature Extraction
 The feature vector is build in real time and encodes the url of the web requests as well as other information.
@@ -90,3 +91,18 @@ const types = [
 0,0,...,16,28,28,24,27,59,48,...,1,1,2,1
 ```
 This vector includes a padding at the beginning the encoded url and the additional attributes.
+
+## Build
+### Clone the repository.
+```git clone https://github.com/HenrySchwerdt/tracking_detector.git```
+### Install Dependencies
+```npm install```
+
+### Build Project
+```npm run build```
+
+
+
+
+## Installation
+You can directly install the extension from the public folder when Chrome developer options are enabled.
