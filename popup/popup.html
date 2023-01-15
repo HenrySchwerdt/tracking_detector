@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/mui.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/mui.min.js"></script>
+  </head>
+
+  <body>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        width: 400px;
+      }
+      .size {
+        width: 100%;
+      }
+    </style>
+    <div class="size">
+      <div class="header padding">
+        <div id="headerRow" class="d-flex flex-row center">
+            <img width="40px" height="40px" id="favicon" alt=""/>
+            <div id="currentUrl" class="mui--text-headline"></div>
+        </div>
+        
+        <div class="mui--text-subhead mt-1">Blocked Trackers</div>
+
+        <div class="d-flex flex-row-reverse center">
+          <div id="numOfBlockedRequests" class="mui--text-display3">0</div>
+        </div>
+      </div>
+      <div class="mui-divider"></div>
+      <div class="padding">
+        <div class="d-flex flex-row center">
+          <div class="mui--text-subhead mt-1">Blocking is active</div>
+          <div>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        <div class="d-flex flex-row center">
+            <div class="mui--text-subhead mt-1">Blocking is sensitivity</div>
+            <div>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+      </div>
+      <div class="mui-divider">
+        <button class="mui-btn" id="moreInfos">Button</button>
+      </div>
+    </div>
+    <div id="requests">
+      
+    </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
