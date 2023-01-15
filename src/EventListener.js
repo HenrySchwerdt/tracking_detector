@@ -75,7 +75,7 @@ const EventListener = (async () => {
         return { cancel: result.blocked && StatsListener.isActive() };
       },
       urlFilter,
-      ["requestHeaders", "extraHeaders"]
+      ["requestHeaders", "extraHeaders", "blocking"]
     );
     
     return () => true;

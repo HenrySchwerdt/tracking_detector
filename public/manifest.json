@@ -1,49 +1,29 @@
 {
   "name": "Tracker Detector",
   "version": "0.5.0",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "background": {
-    "service_worker": "./background/background.js",
-    "type": "module"
+    "scripts": ["./background/background.js"],
+    "persistent": true
   },
-  "minimum_chrome_version": "92",
-  "action": {
+  "browser_action": {
     "default_title": "Tracker Detector",
-    "default_popup": "/popup/index.html"
+    "default_popup": "/popup/popup.html"
   },
   "permissions": [
     "background",
     "webRequest",
-    "declarativeNetRequestWithHostAccess",
     "webRequestBlocking",
     "storage",
     "unlimitedStorage",
     "downloads",
     "activeTab",
-    "tabs"
+    "tabs",
+    "<all_urls>"
   ],
-  "host_permissions": ["*://*/*"],
   "web_accessible_resources": [
-    {
-      "resources": [
-        "/model/group1-shard1of4.bin",
-        "/model/group1-shard2of4.bin",
-        "/model/group1-shard3of4.bin",
-        "/model/group1-shard4of4.bin",
-        "/model/model.json",
-        "/lib/tfjs@2.0.0.min.js",
-        "/popup/js/mui.min.js",
-        "/popup/js/script.js",
-        "/popup/css/mui.css",
-        "/popup/css/style.css",
-        "/popup/popup.html",
-        "/background/hello.js"
-      ],
-      "matches": [ "<all_urls>" ]
-    }
+    "*", "model/*"
   ],
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
-  }
+  "content_security_policy": "script-src 'self' 'unsafe-eval' 'wasm-unsafe-eval' ; object-src 'self' 'unsafe-eval' 'wasm-unsafe-eval'"
 }
 
