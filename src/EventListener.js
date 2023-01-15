@@ -71,7 +71,6 @@ const EventListener = (async () => {
           ...result,
         });
         pushToQueue(details.requestId);
-        console.log(result)
         return { cancel: result.blocked && StatsListener.isActive() };
       },
       urlFilter,
