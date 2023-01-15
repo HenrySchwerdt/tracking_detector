@@ -1,6 +1,5 @@
-<div style="width: 100%; text-align: center">
-    <img src="./public/icons/icon128.png" height="128" width="128">
-</div>
+
+<img src="./public/icons/icon128.png" height="128" width="128">
 
 # Tracking Detector
 
