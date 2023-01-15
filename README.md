@@ -1,5 +1,8 @@
+<div style="display: flex; flex-direction: row; justify-content: center; align-items: center; width: 100%">
+    <img src="./public/icons/icon128.png" height="128" width="128">
+</div>
 
-<img src="./public/icons/icon128.png" height="128" width="128">
+
 
 # Tracking Detector
 
