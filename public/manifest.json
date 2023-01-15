@@ -2,6 +2,13 @@
   "name": "Tracker Detector",
   "version": "0.5.0",
   "manifest_version": 2,
+  "icons": {
+    "32": "./icons/icon32.png",
+    "48": "./icons/icon48.png",
+    "64": "./icons/icon64.png",
+    "96": "./icons/icon96.png",
+    "128": "./icons/icon128.png"
+  },
   "background": {
     "scripts": ["./background/background.js"],
     "persistent": true
