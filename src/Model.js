@@ -1,3 +1,5 @@
+import * as tf from '@tensorflow/tfjs';
+
 const Model = (async () => {
     const MODEL_URI = chrome.runtime.getURL("model/model.json");
     const model = await tf.loadLayersModel(MODEL_URI); 
@@ -7,3 +9,7 @@ const Model = (async () => {
         }
     }
 })(); 
+
+export {
+    Model
+}

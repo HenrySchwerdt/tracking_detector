@@ -1,3 +1,7 @@
+import { RequestBlocker } from "./RequestBlocker";
+import { StatsListener } from "./StatsListener";
+import { Requests } from "./Request";
+
 const EventListener = (async () => {
   const urlFilter = { urls: ["http://*/*", "https://*/*"] };
   let requests = {};
@@ -67,10 +71,11 @@ const EventListener = (async () => {
           ...result,
         });
         pushToQueue(details.requestId);
+        console.log(result)
         return { cancel: result.blocked && StatsListener.isActive() };
       },
       urlFilter,
-      ["requestHeaders", "extraHeaders", "blocking"]
+      ["requestHeaders", "extraHeaders"]
     );
     
     return () => true;
@@ -79,25 +84,3 @@ const EventListener = (async () => {
   console.log("Backend Ready")
 })();
 
-// chrome.webRequest.onBeforeSendHeaders.addListener(
-//   async (details) => {
-//     setRequest(details.requestId, {
-//       requestHeaders: details.requestHeaders,
-//     });
-//     let result = blocker.check(details);
-//     setRequest(details.requestId, {
-//       ...result,
-//     });
-//     pushToQueue(details.requestId);
-//     return { cancel: true }//result.blocked && StatsListener.isActive() };
-//   },
-//   urlFilter,
-//   ["requestHeaders", "extraHeaders", "blocking"]
-// );
-// chrome.webRequest.onBeforeSendHeaders.addListener(
-//   (details) => {
-//    return { cancel: true }//result.blocked && StatsListener.isActive() };
-//  },
-//  { urls: ["http://*/*", "https://*/*"] },
-//  ["requestHeaders", "extraHeaders", "blocking"]
-// );

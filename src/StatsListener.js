@@ -25,3 +25,7 @@ const StatsListener = (() => {
         }
     }
 })()
+
+export {
+    StatsListener
+}
