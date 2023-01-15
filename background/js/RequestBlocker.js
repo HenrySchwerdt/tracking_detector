@@ -1,8 +1,10 @@
-const RequestBlocker = (() => {
+const RequestBlocker = (async () => {
+    
+    let model = await Model;
     return {
-        async check(request) {
+        check(request) {
             let encoding = FeatureExtractor.encode(request);
-            let model = await Model;
+            
             let result = model.predict(encoding)
            
             const values = result.dataSync();

@@ -43,7 +43,6 @@ const FeatureExtractor = (() => {
         }
         return encoding;
     }
-    console.log("Feature Extractor Setup");
     return {
         encode(request) {
             let features = [];

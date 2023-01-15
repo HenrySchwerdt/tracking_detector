@@ -11,7 +11,6 @@ const Requests = (() => {
       chrome.storage.local.set({requests});
     }, 200)
 
-    console.log("RequestMap Setup");
     return {
       add: (request) => {
         const currentTab = ActiveTabListener.getCurrentTab();
