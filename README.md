@@ -1,4 +1,4 @@
-<img src="./public/icons/icon128.png" height="60" width="60" style="text-align: center" >
+<img src="./public/icons/icon128.png" height="128" width="128">
 
 # Tracking Detector
 
