@@ -3,14 +3,11 @@ import { ActiveTabListener } from "./ActiveTabListener";
 
 const Requests = (() => {
     let requests = {};
-  
-
     // Send data to front end
     setInterval(() => {
       const currentTab = ActiveTabListener.getCurrentTab();
       if (currentTab != null) {
-        console.log(currentTab)
-        chrome.storage.local.set({requests: requests[currentTab.id] == undefined ? [] : requests[currentTab.id]});
+        chrome.storage.local.set({requests: requests[currentTab.id] || [] });
       }
     }, 200)
 
