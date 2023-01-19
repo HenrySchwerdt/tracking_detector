@@ -94,13 +94,26 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
+chrome.storage.local.get(['settings'], (data) => {
+  let rangeSlider = document.getElementById('rangeSlider')
+  rangeSlider.value = data.settings.rate * 100;
+  let rangeValue = document.getElementById('rangeValue')
+  rangeValue.innerText = data.settings.rate
+})
+
+
+
 document.getElementById('checkBox').addEventListener('click', () => {
   settingsState.active = !settingsState.active;
   chrome.storage.local.set({settings: {active: settingsState.active, rate: settingsState.rate}});
 })
 
 
-document.getElementById('rangeSlider').addEventListener('change', (el, ev) => {
-  console.log(el)
-  console.log(ev)
+document.getElementById('rangeSlider').addEventListener('input', function () {
+  document.getElementById('rangeValue').innerText = this.value / 100
+})
+
+document.getElementById('rangeSlider').addEventListener('change', function () {
+  settingsState.rate = this.value / 100;
+  chrome.storage.local.set({settings: {active: settingsState.active, rate: settingsState.rate}});
 })

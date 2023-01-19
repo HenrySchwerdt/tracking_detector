@@ -1,6 +1,6 @@
 {
   "name": "Tracker Detector",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "manifest_version": 2,
   "icons": {
     "32": "./icons/icon32.png",
