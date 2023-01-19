@@ -2,31 +2,34 @@ import { ActiveTabListener } from "./ActiveTabListener";
 
 
 const Requests = (() => {
-    let requests = [];
+    let requests = {};
   
-    const removeOldTabIds = (id) => {
-      requests = requests.filter( x=> x.tabId == id);
-    }
 
+    // Send data to front end
     setInterval(() => {
       const currentTab = ActiveTabListener.getCurrentTab();
       if (currentTab != null) {
-        removeOldTabIds(currentTab.id);
+        console.log(currentTab)
+        chrome.storage.local.set({requests: requests[currentTab.id] == undefined ? [] : requests[currentTab.id]});
       }
-      
-      chrome.storage.local.set({requests});
     }, 200)
+
+    // Clean unwanted data
+    setInterval(() => {
+      const tabIds = ActiveTabListener.getAllTabs().map(x => x.id);
+      const currentIds = Object.keys(requests);
+      currentIds.filter(x => tabIds.includes(x)).forEach(x => {
+        delete requests[x];
+      });
+    }, 1000);
 
     return {
       add: (request) => {
-        const currentTab = ActiveTabListener.getCurrentTab();
-
-        if (request.tabId != currentTab.id) {
-          return
+        if (requests.hasOwnProperty(request.tabId)) {
+          requests[request.tabId].push(request);
+        } else {
+          requests[request.tabId] = [request];
         }
-        removeOldTabIds(currentTab.id);
-        requests.push(request);
-        chrome.storage.local.set({requests})
       },
     };
   })();
