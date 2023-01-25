@@ -28,6 +28,9 @@ const Requests = (() => {
           requests[request.tabId] = [request];
         }
       },
+      refreshDataForTab: (tabid) => {
+        requests[tabid] = [];
+      }
     };
   })();
 export {

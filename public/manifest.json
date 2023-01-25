@@ -1,5 +1,6 @@
 {
   "name": "Tracker Detector",
+  "description": "Block tracking web requests in real time using Tensorflow Js Layers Module.",
   "version": "1.0.0",
   "manifest_version": 2,
   "icons": {
@@ -15,7 +16,7 @@
   },
   "browser_action": {
     "default_title": "Tracker Detector",
-    "default_popup": "/popup/popup.html"
+    "default_popup": "/popup/index.html"
   },
   "permissions": [
     "background",

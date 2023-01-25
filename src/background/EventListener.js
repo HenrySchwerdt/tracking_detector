@@ -83,3 +83,6 @@ const EventListener = (async () => {
   console.log("Backend Ready")
 })();
 
+export {  
+  EventListener
+}
