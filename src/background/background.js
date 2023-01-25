@@ -1,6 +1,5 @@
-import {EventListener} from "./EventListener"
+import { EventListener } from "./EventListener";
 
-
-(async () => {
-    await EventListener
-})
+async () => {
+  await EventListener;
+};

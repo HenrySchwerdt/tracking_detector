@@ -37,17 +37,20 @@ export default {
     },
   }),
   mounted: function () {
-    chrome.storage.local.get(["settings"], (data) => {
+    browser.storage.local.get("settings").then((data) => {
       if (data == undefined) {
         return;
       } else {
-        this.settings = {active: data.settings.active, rate: data.settings.rate * 100};
+        this.settings = {
+          active: data.settings.active,
+          rate: data.settings.rate * 100,
+        };
       }
     });
   },
   methods: {
     onSettingsChanged() {
-      chrome.storage.local.set({
+      browser.storage.local.set({
         settings: {
           active: this.settings.active,
           rate: this.settings.rate / 100,

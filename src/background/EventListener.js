@@ -19,8 +19,8 @@ const EventListener = (async () => {
   };
   const getCompletedTabFromId = (tabId, callback) => {
     try {
-      chrome.tabs.get(tabId, function (tab) {
-        if (chrome.runtime.lastError || typeof tab === "undefined") {
+      browser.tabs.get(tabId).then(function (tab) {
+        if (browser.runtime.lastError || typeof tab === "undefined") {
           return;
         } else {
           callback(tab);
@@ -34,7 +34,7 @@ const EventListener = (async () => {
   };
 
   const load = (() => {
-    chrome.webRequest.onBeforeRequest.addListener(
+    browser.webRequest.onBeforeRequest.addListener(
       (details) => {
         if (details.tabId < 0) {
           return;
@@ -61,7 +61,7 @@ const EventListener = (async () => {
       ["requestBody"]
     );
 
-    chrome.webRequest.onBeforeSendHeaders.addListener(
+    browser.webRequest.onBeforeSendHeaders.addListener(
        (details) => {
         setRequest(details.requestId, {
           requestHeaders: details.requestHeaders,

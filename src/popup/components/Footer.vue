@@ -9,7 +9,9 @@
       >
         <template v-slot:activator>
           <v-list-item-content>
-            <v-list-item-title v-text="item.title + ' ('+ blockedRequests.length + ')'"></v-list-item-title>
+            <v-list-item-title
+              v-text="item.title + ' (' + blockedRequests.length + ')'"
+            ></v-list-item-title>
           </v-list-item-content>
         </template>
 
@@ -39,7 +41,7 @@ export default {
       return this.requests
         .filter((x) => x.blocked)
         .map((x) => ({
-          title: x.url
+          title: x.url,
         }));
     },
   },

@@ -14,7 +14,9 @@
     </div>
     <div style="padding: 0 16px 0 16px" class="mt-5">
       <div class="text-subtitle-1">Blocked Trackers</div>
-      <div class="text-h2 d-flex flex-row-reverse align-center">{{ trackers.length }}</div>
+      <div class="text-h2 d-flex flex-row-reverse align-center">
+        {{ trackers.length }}
+      </div>
     </div>
     <v-list color="secondary">
       <v-list-group
@@ -25,7 +27,9 @@
       >
         <template v-slot:activator>
           <v-list-item-content>
-            <v-list-item-title v-text="item.title + ' ('+ trackers.length + ')'"></v-list-item-title>
+            <v-list-item-title
+              v-text="item.title + ' (' + trackers.length + ')'"
+            ></v-list-item-title>
           </v-list-item-content>
         </template>
 
@@ -55,7 +59,7 @@ export default {
   }),
   mounted: function () {
     this.timer = setInterval(() => {
-      chrome.storage.local.get(["info"], (data) => {
+      browser.storage.local.get("info").then((data) => {
         if (this.faviconUrl != data.info.favIconUrl) {
           this.faviconUrl = data.info.favIconUrl;
         }
@@ -68,13 +72,15 @@ export default {
   },
   computed: {
     trackers: function () {
-      return this.requests
-        .filter((x) => x.blocked)
-        .map((x) => new URL(x.url).hostname)
-        .filter((v, i, a) => a.indexOf(v) === i)
-        .map((x) => ({
-          title: x
-        })) || [];
+      return (
+        this.requests
+          .filter((x) => x.blocked)
+          .map((x) => new URL(x.url).hostname)
+          .filter((v, i, a) => a.indexOf(v) === i)
+          .map((x) => ({
+            title: x,
+          })) || []
+      );
     },
   },
   beforeDestroy() {
