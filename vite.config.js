@@ -1,12 +1,12 @@
-const path = require("path");
-const { defineConfig } = require("vite");
-const { viteStaticCopy } = require("vite-plugin-static-copy");
-const { createVuePlugin } = require("vite-plugin-vue2");
+import path from "path";
+import { defineConfig } from "vite";
+import { viteStaticCopy } from "vite-plugin-static-copy";
+import { createVuePlugin } from "vite-plugin-vue2";
 import commonjs from "@rollup/plugin-commonjs";
-import { viteSingleFile } from "vite-plugin-singlefile"
 export default defineConfig({
   root: ".",
   build: {
+    chunkSizeWarningLimit: 1600,
     assetsDir: "popup/",
     outDir: "dist",
     minify: true,
@@ -19,16 +19,13 @@ export default defineConfig({
       output: {
         entryFileNames: "[name]/[name].js",
         assetFileNames: "popup/index.css",
-        chunkFileNames: "popup/[name].js",
+        chunkFileNames: "lib/common.js",
         esModule: false,
         inlineDynamicImports: false,
-
       },
-
       plugins: [commonjs()],
     },
-
-    emptyOutDir: false,
+    emptyOutDir: true,
   },
   plugins: [
     createVuePlugin(),
