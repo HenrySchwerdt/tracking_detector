@@ -1,13 +1,17 @@
 {
   "name": "tracking_detector",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project is the source code to the tracking_detector web extension which blocks tracking request on behalve of an ai.",
   "main": "vite.config.js",
-  "scripts": {
-    "serve": "vite build --watch --config vite.config.js",
-    "build": "vite build --config vite.config.js"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HenrySchwerdt/tracking_detector.git"
   },
-  "author": "",
+  "scripts": {
+    "serve": "npx vite build --watch --config vite.config.js",
+    "build": "npx vite build --config vite.config.js"
+  },
+  "author": "Henry Schwerdtner <henry.schwerdtner@web.de> (https://github.com/HenrySchwerdt)",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -17,7 +21,6 @@
     "@rollup/plugin-commonjs": "^24.0.1",
     "sass": "^1.32.13",
     "vite": "^4.0.4",
-    "vite-plugin-singlefile": "^0.13.2",
     "vite-plugin-static-copy": "^0.13.0",
     "vite-plugin-vue2": "^2.0.3",
     "vue-template-compiler": "^2.7.14"
