@@ -2,10 +2,7 @@
   "name": "tracking_detector",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
-  "directories": {
-    "lib": "lib"
-  },
+  "main": "vite.config.js",
   "scripts": {
     "serve": "vite build --watch --config vite.config.js",
     "build": "vite build --config vite.config.js"
