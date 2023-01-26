@@ -32,12 +32,13 @@
             ></v-list-item-title>
           </v-list-item-content>
         </template>
-
-        <v-list-item v-for="child in trackers" :key="child.title">
-          <v-list-item-content>
-            <v-list-item-title v-text="child.title"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        <div v-if="requests.length >= 1">
+          <v-list-item v-for="child in trackers" :key="child.title">
+            <v-list-item-content>
+              <v-list-item-title v-text="child.title"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </div>
       </v-list-group>
     </v-list>
     <v-divider></v-divider>
@@ -72,15 +73,15 @@ export default {
   },
   computed: {
     trackers: function () {
-      return (
-        this.requests
-          .filter((x) => x.blocked)
-          .map((x) => new URL(x.url).hostname)
-          .filter((v, i, a) => a.indexOf(v) === i)
-          .map((x) => ({
-            title: x,
-          })) || []
-      );
+      return this.requests == null
+        ? []
+        : this.requests
+            .filter((x) => x.blocked)
+            .map((x) => new URL(x.url).hostname)
+            .filter((v, i, a) => a.indexOf(v) === i)
+            .map((x) => ({
+              title: x,
+            }));
     },
   },
   beforeDestroy() {

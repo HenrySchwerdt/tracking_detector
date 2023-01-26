@@ -11,7 +11,7 @@
     "128": "./icons/icon128.png"
   },
   "background": {
-    "scripts": ["./lib/browser-polyfill.js","./background/background.js"],
+    "page": "./background/index.html",
     "persistent": true
   },
   "browser_action": {

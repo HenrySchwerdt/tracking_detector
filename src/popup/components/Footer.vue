@@ -14,12 +14,13 @@
             ></v-list-item-title>
           </v-list-item-content>
         </template>
-
-        <v-list-item v-for="child in blockedRequests" :key="child.title">
-          <v-list-item-content>
-            <v-list-item-title v-text="child.title"></v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        <div v-if="requests.length >= 1">
+          <v-list-item v-for="child in blockedRequests" :key="child.title">
+            <v-list-item-content>
+              <v-list-item-title v-text="child.title"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </div>
       </v-list-group>
     </v-list>
     <v-divider></v-divider>
@@ -38,11 +39,13 @@ export default {
   }),
   computed: {
     blockedRequests: function () {
-      return this.requests
-        .filter((x) => x.blocked)
-        .map((x) => ({
-          title: x.url,
-        }));
+      return this.requests == null
+        ? []
+        : this.requests
+            .filter((x) => x.blocked)
+            .map((x) => ({
+              title: x.url,
+            }));
     },
   },
 };

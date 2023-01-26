@@ -22,9 +22,15 @@ export default {
   mounted: function () {
     this.timer = setInterval(() => {
       browser.storage.local.get("requests").then((data) => {
-        if (this.requests.length < data.requests.length) {
+        console.log(data)
+        try {
+          if (this.requests != null && this.requests.length < data.requests.length) {
           this.requests = data.requests;
         }
+        } catch (e) {
+          
+        }
+       
       });
     }, 200);
   },
