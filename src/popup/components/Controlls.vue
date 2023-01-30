@@ -2,7 +2,7 @@
   <div>
     <div style="padding: 0 16px 0 16px">
       <div class="d-flex flex-row align-center justify-space-between mt-3">
-        <div class="text-body1">Blocking is active</div>
+        <div class="text-subtitle-1">Blocking is active</div>
         <v-switch
           v-model="settings.active"
           color="primary"
@@ -11,7 +11,7 @@
         ></v-switch>
       </div>
       <div class="mt-3">
-        <div class="text-body1">Blocking sensitivity</div>
+        <div class="text-subtitle-1">Blocking sensitivity</div>
         <v-slider
           v-model="settings.rate"
           :min="0"

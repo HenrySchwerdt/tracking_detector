@@ -9,17 +9,18 @@ export default defineConfig({
     chunkSizeWarningLimit: 1600,
     assetsDir: "popup/",
     outDir: "dist",
-    minify: true,
+    // minify: true,
     modulePreload: false,
     rollupOptions: {
       input: {
         popup: path.join(__dirname, "/src/popup/index.js"),
         background: path.join(__dirname, "/src/background/background.js"),
+        option: path.join(__dirname, "/src/option/index.js")
       },
       output: {
         entryFileNames: "[name]/[name].js",
-        assetFileNames: "popup/index.css",
-        chunkFileNames: "lib/common.js",
+        assetFileNames: "lib/[name].css",
+        chunkFileNames: "lib/[name].js",
         esModule: false,
         inlineDynamicImports: false,
       },

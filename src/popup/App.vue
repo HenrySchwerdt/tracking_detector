@@ -1,8 +1,8 @@
 <template>
   <div
-    style="width: 400px; height: 453px; overflow-y: auto; overflow-x: hidden"
+    style="width: 400px; height: 600px;"
   >
-    <v-app>
+    <v-app class="d-flex flex-row">
       <Header :requests="requests"></Header>
       <Controlls></Controlls>
       <Footer :requests="requests"></Footer>

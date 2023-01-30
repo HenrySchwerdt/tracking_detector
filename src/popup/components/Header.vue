@@ -12,12 +12,16 @@
       />
       <div class="text-h5">{{ url || "test" }}</div>
     </div>
-    <div style="padding: 0 16px 0 16px" class="mt-5">
+    <div style="padding: 0 16px 0 16px; flex:1" class="mt-5">
       <div class="text-subtitle-1">Blocked Trackers</div>
       <div class="text-h2 d-flex flex-row-reverse align-center">
         {{ trackers.length }}
       </div>
+      <div class="text-subtitle-1 d-flex flex-row-reverse align-center">
+        Total: {{ requests.length }} | Blocked: {{ trackers.filter((x) => x.blocked).length }}
+      </div>
     </div>
+    <v-divider></v-divider>
     <v-list color="secondary">
       <v-list-group
         v-for="item in items"

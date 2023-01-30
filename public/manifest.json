@@ -18,6 +18,7 @@
     "default_title": "Tracker Detector",
     "default_popup": "/popup/index.html"
   },
+  "options_page": "/option/index.html",
   "permissions": [
     "background",
     "webRequest",
