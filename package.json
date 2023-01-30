@@ -29,6 +29,7 @@
     "@tensorflow/tfjs": "^4.2.0",
     "marked": "^4.2.12",
     "vue": "^2.0.8",
+    "vue-json-viewer": "^2.2.22",
     "vue-markdown": "^2.2.4",
     "vue-resource-2": "^0.8.0",
     "vue-router": "^2.7.0",
